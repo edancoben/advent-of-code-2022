@@ -30,3 +30,25 @@ print("Strategy Guide total score:", my_total_rps_score)
 
 
 ############# PART 2 ###############
+find_my_move = {
+    "A X": "Z",
+    "A Y": "X",
+    "A Z": "Y",
+    "B X": "X",
+    "B Y": "Y",
+    "B Z": "Z",
+    "C X": "Y",
+    "C Y": "Z",
+    "C Z": "X",
+}
+easy_outcome = {"X": 0, "Y": 3, "Z": 6}
+
+
+def rps_score_2(round: str):
+    my_move = find_my_move[round]
+    return move_score[my_move] + easy_outcome[round[2]]
+
+
+my_total_rps_score = sum(map(rps_score_2, rps_rounds))
+
+print("Pt 2 Strategy Guide total score:", my_total_rps_score)
